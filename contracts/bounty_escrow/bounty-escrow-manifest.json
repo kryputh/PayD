@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "upgrade-safe": true,
+  "storage": {
+    "version": "1.0",
+    "fields": [
+      {
+        "name": "admin",
+        "type": "AccountId",
+        "upgrade_safe": true
+      },
+      {
+        "name": "pending_admin",
+        "type": "Option<AccountId>",
+        "upgrade_safe": true
+      },
+      {
+        "name": "admin_timelock",
+        "type": "Option<Timestamp>",
+        "upgrade_safe": true
+      },
+      {
+        "name": "timelock_duration",
+        "type": "Timestamp",
+        "upgrade_safe": true
+      }
+    ]
+  }
+}
