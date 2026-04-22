@@ -6,6 +6,7 @@ members = [
 "contracts/vesting_escrow",
 "contracts/asset_path_payment",
 "contracts/smart_wallet",
+"contracts/bounty_escrow",
 ]
 resolver = "2"
 
