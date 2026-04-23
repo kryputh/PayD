@@ -1,0 +1,20 @@
+[package]
+name = "bounty_escrow"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Bounty escrow contract with two-step admin rotation and timelock"
+
+[dependencies]
+soroban-sdk = { workspace = true }
+
+[dev-dependencies]
+soroban-sdk = { workspace = true, features = ["testutils"] }
+
+[features]
+testutils = ["soroban-sdk/testutils"]
+
+[lib]
+crate-type = ["cdylib", "rlib"]

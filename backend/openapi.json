@@ -25,7 +25,219 @@
       "bearerAuth": []
     }
   ],
+  "tags": [
+    {
+      "name": "System",
+      "description": "Health checks, discovery, and generated documentation endpoints"
+    },
+    {
+      "name": "Assets",
+      "description": "Asset management (ISSUE/CLAWBACK)"
+    },
+    {
+      "name": "Audit",
+      "description": "Transaction audit management"
+    },
+    {
+      "name": "Balance",
+      "description": "Stellar account balance and preflight checks"
+    },
+    {
+      "name": "Bulk Payments",
+      "description": "Multi-operation Stellar transaction batching"
+    },
+    {
+      "name": "Contract Events",
+      "description": "On-chain contract event indexing"
+    },
+    {
+      "name": "Contract Registry",
+      "description": "Deployed contract address registry"
+    },
+    {
+      "name": "Contract Upgrades",
+      "description": "On-chain contract upgrade lifecycle"
+    },
+    {
+      "name": "Exports",
+      "description": "Export receipts and payroll reports"
+    },
+    {
+      "name": "Freeze",
+      "description": "Administrative asset freeze and unfreeze operations"
+    },
+    {
+      "name": "Multi-sig",
+      "description": "Account multi-signature configuration and management"
+    },
+    {
+      "name": "Payments",
+      "description": "Cross-border and cross-asset payments"
+    },
+    {
+      "name": "Payroll Audit",
+      "description": "Detailed payroll-specific audit logs"
+    },
+    {
+      "name": "Payroll Bonus",
+      "description": "One-off bonus payment runs"
+    },
+    {
+      "name": "Rate Limiting",
+      "description": "API rate limit management"
+    },
+    {
+      "name": "Data Search",
+      "description": "Search and filter employees and transactions"
+    },
+    {
+      "name": "Taxation",
+      "description": "Tax rules and deduction management"
+    },
+    {
+      "name": "Throttling",
+      "description": "API request throttling and queuing"
+    },
+    {
+      "name": "Trustlines",
+      "description": "Stellar asset trustline management"
+    },
+    {
+      "name": "Path Payments",
+      "description": "Cross-asset path finding and execution"
+    },
+    {
+      "name": "Auth",
+      "description": "Authentication, refresh, and OAuth endpoints"
+    },
+    {
+      "name": "Balances",
+      "description": "Wallet and balance lookup endpoints"
+    },
+    {
+      "name": "Claims",
+      "description": "Claimable balance and payout claim endpoints"
+    },
+    {
+      "name": "Contracts",
+      "description": "Contract registry endpoints"
+    },
+    {
+      "name": "Employees",
+      "description": "Employee management endpoints"
+    },
+    {
+      "name": "Fees",
+      "description": "Transaction fee estimation endpoints"
+    },
+    {
+      "name": "Metrics",
+      "description": "Prometheus metrics endpoint"
+    },
+    {
+      "name": "Multisig",
+      "description": "Multi-signature wallet endpoints"
+    },
+    {
+      "name": "Notifications",
+      "description": "Notification history and delivery preferences"
+    },
+    {
+      "name": "Payroll",
+      "description": "Payroll queries, summaries, and cache controls"
+    },
+    {
+      "name": "Rates",
+      "description": "Market and FX rate endpoints"
+    },
+    {
+      "name": "Stellar Throttling",
+      "description": "Stellar rate limiting and queue controls"
+    },
+    {
+      "name": "Taxes",
+      "description": "Payroll tax calculation endpoints"
+    },
+    {
+      "name": "Tenant Config",
+      "description": "Tenant configuration management endpoints"
+    },
+    {
+      "name": "Webhooks",
+      "description": "Webhook subscription and delivery endpoints"
+    }
+  ],
   "paths": {
+    "/.well-known/stellar.toml": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Get the published stellar.toml metadata file",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Get API discovery metadata",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/health": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Get API health status",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Get service health status",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/openapi.json": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Get the generated OpenAPI specification",
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/assets/issue": {
       "post": {
         "summary": "Issue organization USD",
@@ -2038,80 +2250,2336 @@
           }
         }
       }
+    },
+    "/api/v1/path-payments/supported-assets": {
+      "get": {
+        "tags": [
+          "Path Payments"
+        ],
+        "summary": "GET /supported-assets",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/path-payments/find-paths": {
+      "post": {
+        "tags": [
+          "Path Payments"
+        ],
+        "summary": "POST /find-paths",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/path-payments/estimate-slippage": {
+      "post": {
+        "tags": [
+          "Path Payments"
+        ],
+        "summary": "POST /estimate-slippage",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/path-payments/execute": {
+      "post": {
+        "tags": [
+          "Path Payments"
+        ],
+        "summary": "POST /execute",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/path-payments/liquidity-pools": {
+      "get": {
+        "tags": [
+          "Path Payments"
+        ],
+        "summary": "GET /liquidity-pools",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/path-payments/liquidity-pools/stats": {
+      "get": {
+        "tags": [
+          "Path Payments"
+        ],
+        "summary": "GET /liquidity-pools/stats",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/path-payments/compare-rates": {
+      "get": {
+        "tags": [
+          "Path Payments"
+        ],
+        "summary": "GET /compare-rates",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/assets/issue": {
+      "post": {
+        "tags": [
+          "Assets"
+        ],
+        "summary": "POST /issue",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/assets/clawback": {
+      "post": {
+        "tags": [
+          "Assets"
+        ],
+        "summary": "POST /clawback",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/audit": {
+      "get": {
+        "tags": [
+          "Audit"
+        ],
+        "summary": "tags:",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/audit/{txHash}": {
+      "get": {
+        "tags": [
+          "Audit"
+        ],
+        "summary": "tags:",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "txHash",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Audit"
+        ],
+        "summary": "/api/audit/{txHash}/verify:",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "txHash",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/audit/{txHash}/verify": {
+      "get": {
+        "tags": [
+          "Audit"
+        ],
+        "summary": "/api/audit/{txHash}:",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "txHash",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /register",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /register",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /register",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /login",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /login",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /login",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/auth/refresh": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /refresh",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/auth/refresh": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /refresh",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/auth/refresh": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /refresh",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/auth/2fa/setup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /2fa/setup",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/auth/2fa/setup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /2fa/setup",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/auth/2fa/setup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /2fa/setup",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/auth/2fa/verify": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /2fa/verify",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/auth/2fa/verify": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /2fa/verify",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/auth/2fa/verify": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /2fa/verify",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/auth/2fa/disable": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /2fa/disable",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/auth/2fa/disable": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /2fa/disable",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/auth/2fa/disable": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "POST /2fa/disable",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/auth/google": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Google Auth",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/auth/google": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Google Auth",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/auth/google": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Google Auth",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/auth/google/callback": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "GET /google/callback",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/auth/google/callback": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "GET /google/callback",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/auth/google/callback": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "GET /google/callback",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/auth/github": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "GitHub Auth",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/auth/github": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "GitHub Auth",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/auth/github": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "GitHub Auth",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/auth/github/callback": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "GET /github/callback",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/auth/github/callback": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "GET /github/callback",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/auth/github/callback": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "GET /github/callback",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/balance/{accountId}": {
+      "get": {
+        "tags": [
+          "Balances"
+        ],
+        "summary": "tags:",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accountId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/balance/preflight": {
+      "post": {
+        "tags": [
+          "Balances"
+        ],
+        "summary": "tags:",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/claims": {
+      "post": {
+        "tags": [
+          "Claims"
+        ],
+        "summary": "POST Claims",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Claims"
+        ],
+        "summary": "GET Claims",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/claims/summary": {
+      "get": {
+        "tags": [
+          "Claims"
+        ],
+        "summary": "GET /summary",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/claims/employee/{employeeId}": {
+      "get": {
+        "tags": [
+          "Claims"
+        ],
+        "summary": "GET /employee/:employeeId",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "employeeId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/claims/{id}": {
+      "get": {
+        "tags": [
+          "Claims"
+        ],
+        "summary": "GET /:id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/claims/{id}/mark-claimed": {
+      "post": {
+        "tags": [
+          "Claims"
+        ],
+        "summary": "POST /:id/mark-claimed",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/claims/{id}/notify": {
+      "post": {
+        "tags": [
+          "Claims"
+        ],
+        "summary": "POST /:id/notify",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/claims/instructions/generate": {
+      "get": {
+        "tags": [
+          "Claims"
+        ],
+        "summary": "GET /instructions/generate",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/claims/check-expired": {
+      "post": {
+        "tags": [
+          "Claims"
+        ],
+        "summary": "POST /check-expired",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/employees": {
+      "post": {
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Create a new employee",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Create a new employee",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/employees": {
+      "post": {
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Create a new employee",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Create a new employee",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/employees/{id}": {
+      "get": {
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Create a new employee",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Create a new employee",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Create a new employee",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/employees/{id}": {
+      "get": {
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Create a new employee",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Create a new employee",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Employees"
+        ],
+        "summary": "Create a new employee",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/employees/bulk-import": {
+      "post": {
+        "tags": [
+          "Employees"
+        ],
+        "summary": "POST /bulk-import",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/employees/bulk-import": {
+      "post": {
+        "tags": [
+          "Employees"
+        ],
+        "summary": "POST /bulk-import",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/fees/recommendation": {
+      "get": {
+        "tags": [
+          "Fees"
+        ],
+        "summary": "GET /recommendation",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/fees/batch-budget": {
+      "post": {
+        "tags": [
+          "Fees"
+        ],
+        "summary": "POST /batch-budget",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/metrics": {
+      "get": {
+        "tags": [
+          "Metrics"
+        ],
+        "summary": "Exposes Prometheus-format metrics for scraping by Prometheus / Grafana.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/notifications/history": {
+      "get": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Get notification history for an employee",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/notifications/history": {
+      "get": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Get notification history for an employee",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/notifications/config": {
+      "get": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Get notification configuration (admin only)",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Update notification configuration (admin only)",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/notifications/config": {
+      "get": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Get notification configuration (admin only)",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Update notification configuration (admin only)",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/notifications/push-token": {
+      "post": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Register a push notification token",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Remove a push notification token",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/notifications/push-token": {
+      "post": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Register a push notification token",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Remove a push notification token",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payments/anchor-info": {
+      "get": {
+        "tags": [
+          "Payments"
+        ],
+        "summary": "tags:",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payments/pathfind": {
+      "post": {
+        "tags": [
+          "Payments"
+        ],
+        "summary": "POST /pathfind",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payments/pathfind": {
+      "post": {
+        "tags": [
+          "Payments"
+        ],
+        "summary": "POST /pathfind",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payments/sep31/initiate": {
+      "post": {
+        "tags": [
+          "Payments"
+        ],
+        "summary": "POST /sep31/initiate",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payments/sep31/status/{domain}/{id}": {
+      "get": {
+        "tags": [
+          "Payments"
+        ],
+        "summary": "GET /sep31/status/:domain/:id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "domain",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payments/sep24/withdraw/interactive": {
+      "post": {
+        "tags": [
+          "Payments"
+        ],
+        "summary": "POST /sep24/withdraw/interactive",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payments/sep24/withdraw/interactive": {
+      "post": {
+        "tags": [
+          "Payments"
+        ],
+        "summary": "POST /sep24/withdraw/interactive",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payments/sep24/status/{domain}/{id}": {
+      "get": {
+        "tags": [
+          "Payments"
+        ],
+        "summary": "GET /sep24/status/:domain/:id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "domain",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payments/sep24/status/{domain}/{id}": {
+      "get": {
+        "tags": [
+          "Payments"
+        ],
+        "summary": "GET /sep24/status/:domain/:id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "domain",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/transactions": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "Query payroll transactions with filtering and pagination",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payroll/transactions": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "Query payroll transactions with filtering and pagination",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/employees/{employeeId}": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "GET /employees/:employeeId",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "employeeId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payroll/employees/{employeeId}": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "GET /employees/:employeeId",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "employeeId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/employees/{employeeId}/summary": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "GET /employees/:employeeId/summary",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "employeeId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payroll/employees/{employeeId}/summary": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "GET /employees/:employeeId/summary",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "employeeId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/batches/{batchId}": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "/",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "batchId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payroll/batches/{batchId}": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "/",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "batchId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/aggregation": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "/",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payroll/aggregation": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "/",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/audit": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "/",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/search/memo": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "/",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payroll/search/memo": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "/",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/transactions/{txHash}": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "Search transactions by memo pattern",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "txHash",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payroll/transactions/{txHash}": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "Search transactions by memo pattern",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "txHash",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/status/rate-limit": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "/",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payroll/status/rate-limit": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "/",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/status/health": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "/",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payroll/status/health": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "/",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/cache/clear": {
+      "post": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "Check SDS health status",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payroll/cache/clear": {
+      "post": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "Check SDS health status",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/cache/stats": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "Check SDS health status",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/payroll/cache/stats": {
+      "get": {
+        "tags": [
+          "Payroll"
+        ],
+        "summary": "Check SDS health status",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/audit/export": {
+      "get": {
+        "tags": [
+          "Payroll Audit"
+        ],
+        "summary": "GET /export",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/audit/summary": {
+      "get": {
+        "tags": [
+          "Payroll Audit"
+        ],
+        "summary": "GET /summary",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/audit/payroll-run/{payrollRunId}": {
+      "get": {
+        "tags": [
+          "Payroll Audit"
+        ],
+        "summary": "GET /payroll-run/:payrollRunId",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "payrollRunId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/audit/employee/{employeeId}": {
+      "get": {
+        "tags": [
+          "Payroll Audit"
+        ],
+        "summary": "GET /employee/:employeeId",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "employeeId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/payroll/audit/{id}": {
+      "get": {
+        "tags": [
+          "Payroll Audit"
+        ],
+        "summary": "GET /:id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/rates": {
+      "get": {
+        "tags": [
+          "Rates"
+        ],
+        "summary": "GET Rates",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/v1/rates": {
+      "get": {
+        "tags": [
+          "Rates"
+        ],
+        "summary": "GET Rates",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/search/organizations/{organizationId}/employees": {
+      "get": {
+        "tags": [
+          "Data Search"
+        ],
+        "summary": "tags:",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organizationId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/search/organizations/{organizationId}/transactions": {
+      "get": {
+        "tags": [
+          "Data Search"
+        ],
+        "summary": "/api/v1/search/organizations/{organizationId}/employees:",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "organizationId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/stellar-throttling/status": {
+      "get": {
+        "tags": [
+          "Stellar Throttling"
+        ],
+        "summary": "/api/stellar-throttling/status:",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/stellar-throttling/metrics": {
+      "get": {
+        "tags": [
+          "Stellar Throttling"
+        ],
+        "summary": "/api/stellar-throttling/status:",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/stellar-throttling/config": {
+      "get": {
+        "tags": [
+          "Stellar Throttling"
+        ],
+        "summary": "/api/stellar-throttling/status:",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Stellar Throttling"
+        ],
+        "summary": "/api/stellar-throttling/config:",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/stellar-throttling/queue/clear": {
+      "post": {
+        "tags": [
+          "Stellar Throttling"
+        ],
+        "summary": "/api/stellar-throttling/config:",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/stellar-throttling/metrics/reset": {
+      "post": {
+        "tags": [
+          "Stellar Throttling"
+        ],
+        "summary": "/api/stellar-throttling/queue/clear:",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/stellar-throttling/health": {
+      "get": {
+        "tags": [
+          "Stellar Throttling"
+        ],
+        "summary": "/api/stellar-throttling/queue/clear:",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/tenant-configs": {
+      "get": {
+        "tags": [
+          "Tenant Config"
+        ],
+        "summary": "GET Tenant Config",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Tenant Config"
+        ],
+        "summary": "PUT Tenant Config",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/tenant-configs/{configKey}": {
+      "get": {
+        "tags": [
+          "Tenant Config"
+        ],
+        "summary": "GET /:configKey",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "configKey",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tenant Config"
+        ],
+        "summary": "DELETE /:configKey",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "configKey",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/webhooks/subscribe": {
+      "post": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "POST /subscribe",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/webhooks/subscribe": {
+      "post": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "POST /subscribe",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/webhooks/subscriptions/{id}": {
+      "put": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "PUT /subscriptions/:id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "GET /subscriptions/:id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "DELETE /subscriptions/:id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/webhooks/subscriptions/{id}": {
+      "put": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "PUT /subscriptions/:id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "GET /subscriptions/:id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "DELETE /subscriptions/:id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/webhooks/subscriptions": {
+      "get": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "GET /subscriptions",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/webhooks/subscriptions": {
+      "get": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "GET /subscriptions",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/webhooks/subscriptions/{id}/delivery-logs": {
+      "get": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "GET /subscriptions/:id/delivery-logs",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/webhooks/subscriptions/{id}/delivery-logs": {
+      "get": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "GET /subscriptions/:id/delivery-logs",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/webhooks/events": {
+      "get": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "GET /events",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/webhooks/events": {
+      "get": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "GET /events",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/webhooks/test-trigger": {
+      "post": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "POST /test-trigger",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/webhooks/test-trigger": {
+      "post": {
+        "tags": [
+          "Webhooks"
+        ],
+        "summary": "POST /test-trigger",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
     }
-  },
-  "tags": [
-    {
-      "name": "Assets",
-      "description": "Asset management (ISSUE/CLAWBACK)"
-    },
-    {
-      "name": "Audit",
-      "description": "Transaction audit management"
-    },
-    {
-      "name": "Balance",
-      "description": "Stellar account balance and preflight checks"
-    },
-    {
-      "name": "Bulk Payments",
-      "description": "Multi-operation Stellar transaction batching"
-    },
-    {
-      "name": "Contract Events",
-      "description": "On-chain contract event indexing"
-    },
-    {
-      "name": "Contract Registry",
-      "description": "Deployed contract address registry"
-    },
-    {
-      "name": "Contract Upgrades",
-      "description": "On-chain contract upgrade lifecycle"
-    },
-    {
-      "name": "Exports",
-      "description": "Export receipts and payroll reports"
-    },
-    {
-      "name": "Freeze",
-      "description": "Administrative asset freeze and unfreeze operations"
-    },
-    {
-      "name": "Multi-sig",
-      "description": "Account multi-signature configuration and management"
-    },
-    {
-      "name": "Payments",
-      "description": "Cross-border and cross-asset payments"
-    },
-    {
-      "name": "Payroll Audit",
-      "description": "Detailed payroll-specific audit logs"
-    },
-    {
-      "name": "Payroll Bonus",
-      "description": "One-off bonus payment runs"
-    },
-    {
-      "name": "Rate Limiting",
-      "description": "API rate limit management"
-    },
-    {
-      "name": "Data Search",
-      "description": "Search and filter employees and transactions"
-    },
-    {
-      "name": "Taxation",
-      "description": "Tax rules and deduction management"
-    },
-    {
-      "name": "Throttling",
-      "description": "API request throttling and queuing"
-    },
-    {
-      "name": "Trustlines",
-      "description": "Stellar asset trustline management"
-    }
-  ]
+  }
 }

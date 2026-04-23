@@ -107,6 +107,16 @@ npm start
 npm test
 ```
 
+**API docs**:
+
+```bash
+# Swagger UI
+http://localhost:3001/api-docs
+
+# Raw OpenAPI document
+http://localhost:3001/api/openapi.json
+```
+
 **Benchmarks**:
 
 ```bash
@@ -380,6 +390,8 @@ LOG_LEVEL=info
 
 ## Documentation
 
+- Swagger UI is served at `/api-docs`.
+- The generated OpenAPI spec is exposed at `/api/openapi.json` and written to `backend/openapi.json` for client generation.
 - [SDS Integration Guide](./docs/SDS_INTEGRATION.md) - Complete SDS implementation details
 - [Indexing Strategy](./docs/INDEXING_STRATEGY.md) - Technical deep-dive on payroll indexing
 - [Benchmarking Results](./docs/BENCHMARKS.md) - Performance comparison data
